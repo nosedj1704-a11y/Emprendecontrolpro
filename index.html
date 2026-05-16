@@ -6,100 +6,249 @@
 <title>EmprendeControl PRO</title>
 
 <style>
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial, sans-serif;
+font-family:'Segoe UI',sans-serif;
 }
 
 body{
-background:#f4f4f4;
-padding:20px;
-color:#333;
-}
-
-header{
-background:#6a0dad;
-color:white;
-padding:20px;
-border-radius:15px;
-text-align:center;
-margin-bottom:20px;
-box-shadow:0 4px 10px rgba(0,0,0,0.2);
-}
-
-header p{
-margin-top:8px;
-font-size:14px;
+background:#f5f2ff;
+padding:15px;
+color:#222;
 }
 
 .container{
-max-width:900px;
+max-width:430px;
 margin:auto;
+padding-bottom:120px;
 }
+
+/* HEADER */
+
+.header{
+background:linear-gradient(135deg,#7b2cff,#9d5cff);
+padding:28px 22px;
+border-radius:32px;
+color:white;
+position:relative;
+overflow:hidden;
+box-shadow:0 10px 25px rgba(123,44,255,0.3);
+margin-bottom:22px;
+}
+
+.header::before{
+content:"";
+position:absolute;
+width:180px;
+height:180px;
+background:rgba(255,255,255,0.09);
+border-radius:50%;
+top:-60px;
+right:-50px;
+}
+
+.header::after{
+content:"";
+position:absolute;
+width:130px;
+height:130px;
+background:rgba(255,255,255,0.07);
+border-radius:50%;
+bottom:-40px;
+left:-30px;
+}
+
+.top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:relative;
+z-index:2;
+}
+
+.logo{
+font-size:55px;
+}
+
+.notif{
+background:white;
+color:#7b2cff;
+width:42px;
+height:42px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:20px;
+font-weight:bold;
+}
+
+.header h1{
+margin-top:10px;
+font-size:30px;
+position:relative;
+z-index:2;
+}
+
+.pro{
+background:#ff76b6;
+padding:5px 12px;
+border-radius:20px;
+font-size:13px;
+margin-left:8px;
+}
+
+.header p{
+margin-top:10px;
+font-size:15px;
+opacity:0.95;
+position:relative;
+z-index:2;
+line-height:1.4;
+}
+
+/* MENU */
+
+.menu{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:12px;
+margin-top:25px;
+position:relative;
+z-index:2;
+}
+
+.menu-item{
+background:white;
+padding:14px 10px;
+border-radius:20px;
+text-align:center;
+color:#7b2cff;
+font-size:12px;
+font-weight:bold;
+box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* CARDS */
 
 .card{
 background:white;
-padding:20px;
-border-radius:15px;
-margin-bottom:20px;
-box-shadow:0 4px 8px rgba(0,0,0,0.1);
+padding:22px;
+border-radius:28px;
+margin-bottom:22px;
+box-shadow:0 5px 18px rgba(0,0,0,0.07);
 }
 
 .card h2{
-margin-bottom:15px;
-color:#6a0dad;
+color:#7b2cff;
+margin-bottom:16px;
+font-size:22px;
 }
 
-input, select{
+/* INPUTS */
+
+input,select{
 width:100%;
-padding:12px;
-margin-bottom:12px;
-border-radius:10px;
-border:1px solid #ccc;
+padding:15px;
+margin-bottom:14px;
+border:none;
+border-radius:18px;
+background:#f7f4ff;
 font-size:15px;
+border:2px solid transparent;
 }
+
+input:focus,select:focus{
+outline:none;
+border-color:#9d5cff;
+background:white;
+}
+
+/* BUTTON */
 
 button{
 width:100%;
-padding:12px;
-background:#6a0dad;
-color:white;
+padding:16px;
 border:none;
-border-radius:10px;
+border-radius:18px;
+background:linear-gradient(135deg,#7b2cff,#9d5cff);
+color:white;
 font-size:16px;
-cursor:pointer;
-transition:0.3s;
-}
-
-button:hover{
-background:#520b9e;
-}
-
-.total-box{
-text-align:center;
-font-size:22px;
 font-weight:bold;
-color:#6a0dad;
+cursor:pointer;
 }
 
-#historial{
+.total{
+font-size:40px;
+font-weight:bold;
+text-align:center;
+color:#7b2cff;
+margin:15px 0;
+}
+
+.grafico{
+width:100%;
+height:26px;
+background:#eee;
+border-radius:20px;
+overflow:hidden;
+margin-top:12px;
+}
+
+.barra{
+height:100%;
+width:0%;
+background:linear-gradient(135deg,#7b2cff,#b57cff);
+text-align:center;
+color:white;
+font-size:13px;
+font-weight:bold;
+line-height:26px;
+}
+
+.metodo{
+display:flex;
+justify-content:space-between;
+padding:14px;
+background:#faf8ff;
+border-radius:18px;
+margin-top:12px;
+font-weight:bold;
+}
+
+/* HISTORIAL */
+
+.historial li{
 list-style:none;
+background:#faf8ff;
+padding:18px;
+border-radius:22px;
+margin-bottom:14px;
+border-left:6px solid #9d5cff;
 }
 
-#historial li{
-background:#f9f9f9;
-padding:15px;
-border-radius:10px;
-margin-bottom:10px;
-border-left:6px solid #6a0dad;
+.tag{
+float:right;
+background:#9d5cff;
+color:white;
+padding:6px 12px;
+border-radius:14px;
+font-size:12px;
+}
+
+.fecha{
+font-size:12px;
+color:gray;
+margin-top:5px;
 }
 
 .acciones{
-margin-top:10px;
 display:flex;
 gap:10px;
+margin-top:12px;
 }
 
 .editar{
@@ -110,40 +259,44 @@ background:#ff9800;
 background:#e53935;
 }
 
-.vacio{
-text-align:center;
-color:gray;
-padding:20px;
+/* MENU ABAJO */
+
+.bottom{
+position:fixed;
+bottom:15px;
+left:50%;
+transform:translateX(-50%);
+width:92%;
+max-width:430px;
+background:white;
+padding:16px;
+border-radius:28px;
+display:flex;
+justify-content:space-around;
+align-items:center;
+box-shadow:0 8px 20px rgba(0,0,0,0.12);
 }
 
-.grafico{
-margin-top:15px;
-background:#eee;
-border-radius:10px;
-overflow:hidden;
-height:25px;
+.bottom div{
+text-align:center;
+font-size:12px;
+font-weight:bold;
+color:#7b2cff;
 }
 
-.barra{
-height:100%;
-background:#6a0dad;
-text-align:center;
+.plus{
+width:65px;
+height:65px;
+background:linear-gradient(135deg,#7b2cff,#9d5cff);
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:34px;
 color:white;
-line-height:25px;
+margin-top:-45px;
 }
 
-footer{
-text-align:center;
-margin-top:20px;
-color:gray;
-font-size:14px;
-}
-
-@media(max-width:600px){
-body{
-padding:10px;
-}
-}
 </style>
 </head>
 
@@ -151,12 +304,48 @@ padding:10px;
 
 <div class="container">
 
-<header>
-<h1>📊 EmprendeControl PRO</h1>
-<p>Organiza pedidos, ingresos y métodos de pago fácilmente</p>
-</header>
+<div class="header">
+
+<div class="top">
+<div class="logo">🛒</div>
+<div class="notif">🔔</div>
+</div>
+
+<h1>
+EmprendeControl
+<span class="pro">PRO</span>
+</h1>
+
+<p>
+Gestiona pedidos, ingresos y métodos de pago de manera rápida y sencilla desde cualquier celular.
+</p>
+
+<div class="menu">
+
+<div class="menu-item">
+📦<br>Ventas
+</div>
+
+<div class="menu-item">
+📊<br>Ingresos
+</div>
+
+<div class="menu-item">
+🧾<br>Historial
+</div>
+
+<div class="menu-item">
+📈<br>Reportes
+</div>
+
+</div>
+
+</div>
+
+<!-- FORMULARIO -->
 
 <div class="card">
+
 <h2>➕ Registrar Venta</h2>
 
 <input type="text" id="cliente" placeholder="Nombre del cliente">
@@ -164,7 +353,7 @@ padding:10px;
 <input type="text" id="producto" placeholder="Producto o servicio">
 
 <select id="categoria">
-<option value="">Selecciona categoría</option>
+<option value="">Categoría</option>
 <option>Comida</option>
 <option>Ropa</option>
 <option>Belleza</option>
@@ -176,88 +365,166 @@ padding:10px;
 
 <select id="metodo">
 <option value="">Método de pago</option>
-<option>Tarjeta Crédito</option>
-<option>Tarjeta Débito</option>
-<option>Yape</option>
-<option>Plin</option>
-<option>Efectivo</option>
-<option>Transferencia</option>
+<option>💜 Yape</option>
+<option>💙 Plin</option>
+<option>💵 Efectivo</option>
+<option>💳 Tarjeta Crédito</option>
+<option>🏦 Tarjeta Débito</option>
+<option>📲 Transferencia</option>
 </select>
 
-<button onclick="guardarVenta()">Guardar Venta</button>
+<button onclick="guardarVenta()">
+Guardar Venta
+</button>
+
 </div>
 
+<!-- RESUMEN -->
+
 <div class="card">
+
 <h2>📈 Resumen General</h2>
-<div class="total-box">
-Total Ingresos: S/ <span id="total">0</span>
+
+<div class="total">
+S/ <span id="total">0</span>
 </div>
 
 <div class="grafico">
 <div class="barra" id="barra">0%</div>
 </div>
+
+<div id="metodosContainer"></div>
+
 </div>
+
+<!-- HISTORIAL -->
 
 <div class="card">
-<h2>🧾 Historial de Ventas</h2>
-<ul id="historial"></ul>
+
+<h2>🧾 Historial</h2>
+
+<ul class="historial" id="historial"></ul>
+
 </div>
 
-<footer>
-EmprendeControl PRO © 2026
-</footer>
+</div>
+
+<!-- MENU INFERIOR -->
+
+<div class="bottom">
+
+<div>
+🏠<br>Inicio
+</div>
+
+<div class="plus">
++
+</div>
+
+<div>
+⚙️<br>Ajustes
+</div>
 
 </div>
 
 <script>
+
 let ventas = JSON.parse(localStorage.getItem("ventas")) || [];
 let editando = null;
 
-function actualizarPantalla(){
+function actualizar(){
+
 const historial = document.getElementById("historial");
-const totalTexto = document.getElementById("total");
+const total = document.getElementById("total");
 const barra = document.getElementById("barra");
+const metodosContainer = document.getElementById("metodosContainer");
 
 historial.innerHTML = "";
+metodosContainer.innerHTML = "";
+
+let suma = 0;
+
+let metodosTotales = {};
 
 if(ventas.length === 0){
-    historial.innerHTML = `
-    <div class="vacio">
-    No hay ventas registradas aún 📭
-    </div>`;
+
+historial.innerHTML = `
+<li>
+No hay ventas registradas aún 📭
+</li>
+`;
+
 }
 
-let total = 0;
+ventas.forEach((venta,index)=>{
 
-ventas.forEach((venta, index)=>{
+suma += Number(venta.monto);
 
-    total += Number(venta.monto);
+if(!metodosTotales[venta.metodo]){
+metodosTotales[venta.metodo] = 0;
+}
 
-    historial.innerHTML += `
-    <li>
-    <strong>Cliente:</strong> ${venta.cliente}<br>
-    <strong>Producto:</strong> ${venta.producto}<br>
-    <strong>Categoría:</strong> ${venta.categoria}<br>
-    <strong>Monto:</strong> S/ ${venta.monto}<br>
-    <strong>Método:</strong> ${venta.metodo}<br>
-    <strong>Fecha:</strong> ${venta.fecha}<br>
+metodosTotales[venta.metodo] += Number(venta.monto);
 
-    <div class="acciones">
-    <button class="editar" onclick="editarVenta(${index})">Editar</button>
-    <button class="eliminar" onclick="eliminarVenta(${index})">Eliminar</button>
-    </div>
-    </li>
-    `;
+historial.innerHTML += `
+
+<li>
+
+<span class="tag">${venta.metodo}</span>
+
+<strong>${venta.cliente}</strong><br>
+
+${venta.producto}<br>
+
+<div class="fecha">
+${venta.fecha}
+</div>
+
+<h3 style="margin-top:10px;">
+S/ ${venta.monto}
+</h3>
+
+<div class="acciones">
+
+<button class="editar" onclick="editar(${index})">
+Editar
+</button>
+
+<button class="eliminar" onclick="eliminar(${index})">
+Eliminar
+</button>
+
+</div>
+
+</li>
+
+`;
+
 });
 
-localStorage.setItem("ventas", JSON.stringify(ventas));
+for(let metodo in metodosTotales){
 
-const porcentaje = Math.min(total,1000)/10;
+metodosContainer.innerHTML += `
+
+<div class="metodo">
+<span>${metodo}</span>
+<span>S/ ${metodosTotales[metodo].toFixed(2)}</span>
+</div>
+
+`;
+
+}
+
+localStorage.setItem("ventas",JSON.stringify(ventas));
+
+total.textContent = suma.toFixed(2);
+
+const porcentaje = Math.min(suma,1000)/10;
 
 barra.style.width = porcentaje + "%";
+
 barra.textContent = porcentaje.toFixed(0) + "%";
 
-totalTexto.textContent = total.toFixed(2);
 }
 
 function guardarVenta(){
@@ -268,14 +535,17 @@ const categoria = document.getElementById("categoria").value;
 const monto = document.getElementById("monto").value;
 const metodo = document.getElementById("metodo").value;
 
-if(cliente === "" || producto === "" || categoria === "" || monto === "" || metodo === ""){
+if(cliente==="" || producto==="" || categoria==="" || monto==="" || metodo===""){
+
 alert("Completa todos los campos");
+
 return;
+
 }
 
 const fecha = new Date().toLocaleString();
 
-const nuevaVenta = {
+const venta = {
 cliente,
 producto,
 categoria,
@@ -284,18 +554,25 @@ metodo,
 fecha
 };
 
-if(editando === null){
-ventas.push(nuevaVenta);
+if(editando===null){
+
+ventas.push(venta);
+
 }else{
-ventas[editando] = nuevaVenta;
+
+ventas[editando] = venta;
 editando = null;
+
 }
 
-limpiarCampos();
-actualizarPantalla();
+limpiar();
+
+actualizar();
+
 }
 
-function editarVenta(index){
+function editar(index){
+
 const venta = ventas[index];
 
 cliente.value = venta.cliente;
@@ -305,22 +582,29 @@ monto.value = venta.monto;
 metodo.value = venta.metodo;
 
 editando = index;
+
 }
 
-function eliminarVenta(index){
+function eliminar(index){
+
 ventas.splice(index,1);
-actualizarPantalla();
+
+actualizar();
+
 }
 
-function limpiarCampos(){
-cliente.value = "";
-producto.value = "";
-categoria.value = "";
-monto.value = "";
-metodo.value = "";
+function limpiar(){
+
+cliente.value="";
+producto.value="";
+categoria.value="";
+monto.value="";
+metodo.value="";
+
 }
 
-actualizarPantalla();
+actualizar();
+
 </script>
 
 </body>

@@ -179,6 +179,11 @@ color:white;
 font-size:16px;
 font-weight:bold;
 cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.02);
 }
 
 .total{
@@ -275,6 +280,7 @@ display:flex;
 justify-content:space-around;
 align-items:center;
 box-shadow:0 8px 20px rgba(0,0,0,0.12);
+z-index:999;
 }
 
 .bottom div{
@@ -282,6 +288,12 @@ text-align:center;
 font-size:12px;
 font-weight:bold;
 color:#7b2cff;
+cursor:pointer;
+transition:0.3s;
+}
+
+.bottom div:hover{
+transform:scale(1.08);
 }
 
 .plus{
@@ -304,7 +316,7 @@ margin-top:-45px;
 
 <div class="container">
 
-<div class="header">
+<div class="header" id="inicio">
 
 <div class="top">
 <div class="logo">🛒</div>
@@ -317,7 +329,7 @@ EmprendeControl
 </h1>
 
 <p>
-Gestiona pedidos, ingresos y métodos de pago de manera rápida y sencilla desde cualquier celular.
+Gestiona pedidos, ingresos y métodos de pago fácilmente desde cualquier celular.
 </p>
 
 <div class="menu">
@@ -344,7 +356,7 @@ Gestiona pedidos, ingresos y métodos de pago de manera rápida y sencilla desde
 
 <!-- FORMULARIO -->
 
-<div class="card">
+<div class="card" id="formulario">
 
 <h2>➕ Registrar Venta</h2>
 
@@ -409,46 +421,30 @@ S/ <span id="total">0</span>
 
 </div>
 
-  <!-- MENU INFERIOR -->
+<!-- MENU INFERIOR -->
 
 <div class="bottom">
 
-<div onclick="mostrarInicio()" style="cursor:pointer;">
+<div onclick="mostrarInicio()">
 🏠<br>Inicio
 </div>
 
-<div class="plus">
+<div class="plus" onclick="mostrarFormulario()">
 +
 </div>
 
-<div onclick="mostrarAjustes()" style="cursor:pointer;">
+<div onclick="mostrarAjustes()">
 ⚙️<br>Ajustes
 </div>
 
 </div>
-function mostrarInicio(){
 
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-}
-
-function mostrarAjustes(){
-
-alert("⚙️ Ajustes próximamente disponibles");
-
-}
-
-actualizar();
-
-</script>
+<script>
 
 let ventas = JSON.parse(localStorage.getItem("ventas")) || [];
 let editando = null;
 
-function actualizar(){ 
+function actualizar(){
 
 const historial = document.getElementById("historial");
 const total = document.getElementById("total");
@@ -459,7 +455,6 @@ historial.innerHTML = "";
 metodosContainer.innerHTML = "";
 
 let suma = 0;
-
 let metodosTotales = {};
 
 if(ventas.length === 0){
@@ -582,7 +577,6 @@ editando = null;
 }
 
 limpiar();
-
 actualizar();
 
 }
@@ -599,12 +593,16 @@ metodo.value = venta.metodo;
 
 editando = index;
 
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
 }
 
 function eliminar(index){
 
 ventas.splice(index,1);
-
 actualizar();
 
 }
@@ -616,6 +614,28 @@ producto.value="";
 categoria.value="";
 monto.value="";
 metodo.value="";
+
+}
+
+function mostrarInicio(){
+
+document.getElementById("inicio").scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+function mostrarFormulario(){
+
+document.getElementById("formulario").scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+function mostrarAjustes(){
+
+alert("⚙️ Próximamente habrá más ajustes y personalización en EmprendeControl PRO");
 
 }
 

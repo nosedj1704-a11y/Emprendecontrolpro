@@ -409,11 +409,11 @@ S/ <span id="total">0</span>
 
 </div>
 
-<!-- MENU INFERIOR -->
+  <!-- MENU INFERIOR -->
 
 <div class="bottom">
 
-<div>
+<div onclick="mostrarInicio()" style="cursor:pointer;">
 🏠<br>Inicio
 </div>
 
@@ -421,18 +421,34 @@ S/ <span id="total">0</span>
 +
 </div>
 
-<div>
+<div onclick="mostrarAjustes()" style="cursor:pointer;">
 ⚙️<br>Ajustes
 </div>
 
 </div>
+function mostrarInicio(){
 
-<script>
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+function mostrarAjustes(){
+
+alert("⚙️ Ajustes próximamente disponibles");
+
+}
+
+actualizar();
+
+</script>
 
 let ventas = JSON.parse(localStorage.getItem("ventas")) || [];
 let editando = null;
 
-function actualizar(){
+function actualizar(){ 
 
 const historial = document.getElementById("historial");
 const total = document.getElementById("total");
